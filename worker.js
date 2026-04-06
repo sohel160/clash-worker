@@ -1,65 +1,54 @@
 export default {
-  async fetch(request) {
+ async fetch(request) {
 
-    const url = new URL(request.url)
-    const token = url.searchParams.get("token")
+  const url = new URL(request.url)
+  const token = url.searchParams.get("token")
 
-    // token protection
-    if (token !== "abc123") {
-      return new Response("Forbidden", { status: 403 })
-    }
+  // token protection
+  if (token !== "abc123")
+   return new Response("Forbidden",{status:403})
 
-    // detect client
-    const ua = request.headers.get("User-Agent") || ""
-    const accept = request.headers.get("Accept") || ""
+  // allow only Clash clients
+  const ua = request.headers.get("User-Agent") || ""
+  const allowed = ["Clash","clash","ClashMeta","ClashforWindows","ClashX","FiClash","Stash","Shadowrocket"]
 
-    // allow only Clash / FiClash clients
-    const allowedClients = [
-      "Clash",
-      "clash",
-      "ClashMeta",
-      "ClashforWindows",
-      "ClashX",
-      "Stash",
-      "Shadowrocket",
-      "FiClash"
-    ]
+  let ok = false
+  for (const c of allowed){
+   if (ua.includes(c)) ok = true
+  }
 
-    let allowed = false
+  if (!ok)
+   return new Response("404",{status:404})
 
-    for (const client of allowedClients) {
-      if (ua.includes(client)) {
-        allowed = true
-        break
-      }
-    }
-
-    // block browsers
-    if (!allowed && accept.includes("text/html")) {
-      return new Response("404 Not Found", { status: 404 })
-    }
-
-    // hidden proxy config
-    const config = `
+  // full config
+  const cfg = `
 proxies:
-  - name: "proxy1"
-    type: socks5
-    server: 45.115.113.114
-    port: 64182
+- name: proxy1
+  type: socks5
+  server: 45.115.113.114
+  port: 64182
 
-  - name: "proxy2"
-    type: socks5
-    server: 103.89.24.221
-    port: 65088
-    user: 1
-    pass: 1
+- name: proxy2
+  type: socks5
+  server: 144.48.108.122
+  port: 5452
+  
+proxy-groups:
+- name: SELECT
+  type: select
+  proxies:
+  - proxy1
+  - proxy2
+
+rules:
+- MATCH,SELECT
 `
 
-    return new Response(config, {
-      headers: {
-        "Content-Type": "text/plain; charset=utf-8"
-      }
-    })
+  return new Response(cfg.trim(),{
+   headers:{
+    "content-type":"text/plain;charset=utf-8"
+   }
+  })
 
-  }
+ }
 }
