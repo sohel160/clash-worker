@@ -37,8 +37,8 @@ proxies:
 
 - name: proxy1
   type: socks5
-  server: 45.115.113.114
-  port: 64182
+  server: 144.48.108.121
+  port: 5452
 
 - name: proxy2
   type: http
