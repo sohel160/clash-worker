@@ -44,6 +44,14 @@ proxies:
   type: http
   server: 144.48.108.122
   port: 5452
+- name: proxy3
+  type: http
+  server: 103.109.96.20
+  port: 9862
+- name: proxy4
+  type: http
+  server: 103.69.150.138
+  port: 9859
 
 `
 
