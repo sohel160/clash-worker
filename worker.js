@@ -35,29 +35,29 @@ export default {
     const proxies = `
 proxies:
 
-- name: proxy1
+- name: expired
   type: http
-  server: 144.48.108.121
+  server: 144.48.108.12
   port: 5452
-- name: proxy2
+- name: expired
   type: http
-  server: 103.69.150.114
+  server: 103.69.150.11
   port: 9855
-- name: proxy3
+- name: expired
   type: http
-  server: 103.109.96.20
+  server: 103.109.96.2
   port: 9862
-- name: proxy4
+- name: expired
   type: http
-  server: 103.69.150.138
+  server: 103.69.150.13
   port: 9859
-- name: proxy5
+- name: expired
   type: http
-  server: 27.147.195.166
+  server: 27.147.195.16
   port: 27271
-- name: proxy6
+- name: expired
   type: http
-  server: 103.198.132.93
+  server: 103.198.132.9
   port: 2610
   
 
