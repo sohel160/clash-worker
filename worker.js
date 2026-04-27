@@ -35,30 +35,30 @@ export default {
     const proxies = `
 proxies:
 
-- name: expired
-  type: http
-  server: 144.48.108.12
-  port: 5452
-- name: expired
-  type: http
-  server: 103.69.150.11
-  port: 9855
-- name: expired
-  type: http
-  server: 103.109.96.2
-  port: 9862
-- name: expired
-  type: http
-  server: 103.69.150.13
-  port: 9859
-- name: expired
-  type: http
-  server: 27.147.195.16
-  port: 27271
-- name: expired
-  type: http
-  server: 103.198.132.9
-  port: 2610
+- name: free1
+  type: socks5
+  server: 121.200.62.73
+  port: 64182
+- name: free2
+  type: socks5
+  server: 121.200.62.253
+  port: 64182
+- name: free3
+  type: socks5
+  server: 121.200.62.242
+  port: 64182
+- name: free4
+  type: socks5
+  server: 121.200.62.237
+  port: 64182
+- name: free5
+  type: socks5
+  server: 121.200.62.81
+  port: 64182
+- name: free6
+  type: socks5
+  server: 121.200.62.142
+  port: 64182
   
 
 `
