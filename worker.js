@@ -35,31 +35,30 @@ export default {
     const proxies = `
 proxies:
 
-- name: renew
-  type: socks5
-  server: 121.200.62.7
-  port: 64182
-- name: buy from Omar
-  type: socks5
-  server: 121.200.62.25
-  port: 64182
-- name: purchase
-  type: socks5
-  server: 121.200.62.24
-  port: 64182
-- name: pay again
-  type: socks5
-  server: 121.200.62.23
-  port: 64182
-- name: contact omar
-  type: socks5
-  server: 121.200.62.8
-  port: 64182
-- name: renew again
-  type: socks5
-  server: 121.200.62.1
-  port: 64182
-  
+- name: proxy1
+  type: http
+  server: 203.76.108.222
+  port: 27271
+- name: proxy2
+  type: http
+  server: 203.76.112.42
+  port: 27271
+- name: proxy3
+  type: http
+  server: 203.76.115.98
+  port: 27271
+- name: proxy4
+  type: http
+  server: 203.76.123.234
+  port: 27271
+- name: proxy5
+  type: http
+  server: 27.147.195.166
+  port: 27271
+- name: proxy6
+  type: http
+  server: 203.76.126.162
+  port: 27271
 
 `
 
